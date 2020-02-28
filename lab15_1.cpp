@@ -19,9 +19,29 @@ int main(){
 	showData(dPtr,N,M);
 	
 	cout << "---------------------------------------------\n";
+	findRowSum(dPtr, result, N, M);
+	showData(result, N, 1);
 	
-	findRowSum(dPtr,result,N,M);
-	showData(result,N,1);
+	return 0;
 }
 
-//Write definition of randData(), showData() and findRowSum()
+void randData(double *x,int y,int z){
+	for(int i = 0; i < y*z ; i++){
+			*(x + i) = rand()%101/100.00;
+	}
+}
+
+void showData(double *x,int y,int z){
+	for(int i = 0; i < y * z; i++){
+		cout << *(x + i) << "\t";
+		if (i % z == z - 1) cout << "\n";
+	}
+}
+void findRowSum(const double *x,double *r,int y,int z){
+	for(int i = 0; i < y ; i++){
+		*(r + i) = {};
+		for(int j = 0; j < z ; j++){
+			*(r + i) += *(x +i*7+j);
+		}
+	}	
+}
