@@ -1,3 +1,4 @@
+  
 #include<iostream>
 #include<cstdlib>
 #include<ctime>
@@ -22,6 +23,30 @@ int main(){
 	
 	findColSum(dPtr,result,N,M); 
 	showData(result,1,M);
+	
+	return 0;
 }
 
-//Write definition of randData(), showData() and findColSum()
+void randData(double *x,int y,int z){
+	for(int i = 0; i < y*z ; i++){
+			*(x + i) = rand()%101/100.00;
+	}
+
+}
+
+void findColSum(const double *x,double *r,int y,int z){
+	for(int i = 0; i < y ; i++){
+		*(r + i) = {};
+		for(int j = 0; j < z ; j++){
+			*(r + i) += *(x +i+j*7);
+		}
+	}
+}
+
+
+void showData(double *x,int y,int z){
+	for(int i = 0; i < y * z; i++){
+		cout << *(x + i) << "\t";
+		if (i % z == z - 1) cout << "\n";
+	}
+}
